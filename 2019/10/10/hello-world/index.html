@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>java面向对象 - 耀耀切克闹</title>
+    <title>Hello World - 耀耀切克闹</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="耀耀切克闹,"> 
-    <meta name="description" content="　　Java 是面向对象的高级编程语言，类和对象是 Java 程序的构成核心。围绕着 Java 类和 Java 对象，有三大基本特性：封装是 Java 类的编写规范、继承是类与类之间联系的一种形式、,"> 
+    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"> 
     <meta name="author" content="耀"> 
     <link rel="alternative" href="atom.xml" title="耀耀切克闹" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -31,7 +31,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
     <div title="Play/Pause" class="icon-play"></div>
-    <h3 class="subtitle">java面向对象</h3>
+    <h3 class="subtitle">Hello World</h3>
     <div class="social">
 <!--        <div class="like-icon">-->
 <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -56,14 +56,14 @@
                 url(/img/cover.jpg);">
         </div>
         <div class="else">
-            <p class="animated fadeInDown">October 14, 2019</p>
-            <h3 class="animated fadeInDown"><a href="/2019/10/14/java面向对象/" title="java面向对象">java面向对象</a></h3>
+            <p class="animated fadeInDown">October 10, 2019</p>
+            <h3 class="animated fadeInDown"><a href="/2019/10/10/hello-world/" title="Hello World">Hello World</a></h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                         <b class="iconfont icon-text2"></b>
-                        2.6k
+                        2.4k
                     </span>
                     
                     
@@ -73,7 +73,7 @@
                     </span>
                     
                     
-                        <span id="/2019/10/14/java面向对象/" class="leancloud_visitors" data-flag-title="java面向对象">
+                        <span id="/2019/10/10/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
                             <b class="iconfont icon-read"></b>
                             <i class="leancloud-visitors-count">1000000</i>
                         </span>
@@ -100,53 +100,19 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn slower">
-            <p>　　Java 是面向对象的高级编程语言，类和对象是 Java 程序的构成核心。围绕着 Java 类和 Java 对象，有三大基本特性：封装是 Java 类的编写规范、继承是类与类之间联系的一种形式、而多态为系统组件或模块之间解耦提供了解决方案。</p>
-<p>　　本文主要围绕这三大特性介绍一下 Java 面向对象、组件解耦的核心思想。</p>
-<p>1、面向对象思想<br>　　面向对象编程是当今主流的程序设计思想，已经取代了过程化程序开发技术，Java 是完全面向对象编程语言，所以必须熟悉面向对象才能够编写 Java 程序。</p>
-<p>　　面向对象的程序核心是由对象组成的，每个对象包含着对用户公开的特定功能和隐藏的实现部分。程序中的很多对象来自 JDK 标准库，而更多的类需要我们程序员自定义。</p>
-<p>　　从理论上讲，只要对象能够实现业务功能，其具体的实现细节不必特别关心。</p>
-<p>　　面向对象有以下特点：</p>
-<p>　　（1）面向对象是一种常见的思想，比较符合人们的思考习惯；</p>
-<p>　　（2）面向对象可以将复杂的业务逻辑简单化，增强代码复用性；</p>
-<p>　　（3）面向对象具有抽象、封装、继承、多态等特性。</p>
-<p>　　面向对象的编程语言主要有：C++、Java、C#等。</p>
-<p>2、类和对象的关系<br>　　类：</p>
-<p>　　对某类事物的普遍一致性特征、功能的抽象、描述和封装，是构造对象的模版或蓝图，用 Java 编写的代码都会在某些类的内部。类之间主要有：依赖、聚合、继承等关系。</p>
-<p>　　对象：</p>
-<p>　　使用 new 关键字或反射技术创建的某个类的实例。同一个类的所有对象，都具有相似的数据（比如人的年龄、性别）和行为（比如人的吃饭、睡觉），但是每个对象都保存着自己独特的状态，对象状态会随着程序的运行而发生改变，需要注意状态的变化必须通过调用方法来改变，这就是封装的基本原则。</p>
-<p>3、封装思想<br>　　核心思想就是“隐藏细节”、“数据安全”：将对象不需要让外界访问的成员变量和方法私有化，只提供符合开发者意愿的公有方法来访问这些数据和逻辑，保证了数据的安全和程序的稳定。</p>
-<p>　　具体的实现方式就是：</p>
-<p>　　使用 private 修饰符把成员变量设置为私有，防止外部程序直接随意调用或修改成员变量，然后对外提供 public 的 set 和 get 方法按照开发者的意愿（可以编写一些业务逻辑代码，虽然很少这样做）设置和获取成员变量的值。</p>
-<p>　　也可以把只在本类内部使用的方法使用 private，这就是封装的思想，是面向对象最基本的开发规范之一。</p>
-<p>　　在此，我们有必要说一下 Java 的访问权限修饰关键字。Java 中主要有 private、protected、public 和 默认访问权限 四种：</p>
-<p>　　public 修饰符，具有最大的访问权限，可以访问任何一个在 CLASSPATH 下的类、接口、异常等。</p>
-<p>　　protected 修饰符，主要作用就是用来保护子类，子类可以访问这些成员变量和方法，其余类不可以。</p>
-<p>　　default 修饰符，主要是本包的类可以访问。</p>
-<p>　　private 修饰符，访问权限仅限于本类内部，在实际开发过程中，大多数的成员变量和方法都是使用 private 修饰的。</p>
-<p>　　</p>
-<p>　　Java 的访问控制是停留在编译层的，只在编译时进行访问权限检查，不会在类文件中留下痕迹。</p>
-<p>　　通过反射机制，还是可以访问类的私有成员的。</p>
-<p> 　　我们举个小例子：</p>
-<p> View Code</p>
-<p> 　　在实际的开发过程中，这样的封装方式已经成了 Java Bean 代码编写的规范。现在主流的框架在使用反射技术为对象赋值、取值时使用的都是 set 和 get 方法，而不是直接操作字段的值。</p>
-<p>4、继承和类实例化过程<br>　　（1）在多个不同的类中抽取出共性的数据和逻辑，对这些共性的内容进行封装一个新的类即父类（也叫做超类或基类），让之前的类来继承这个类，那些共性的内容在子类中就不必重复定义，比如 BaseDAO、BaseAction 等。</p>
-<p>　　* （2）Java 的继承机制是单继承，即一个类只能有一个直接父类。</p>
-<p>　　* （3）如果子类和父类有同名成员变量和方法，子类可以使用 super 关键字调用父类的成员变量和方法，上述使用方式前提是成员在子类可见。</p>
-<p>　　* （4）在调用子类构造方法时，会隐式的调用父类的构造方法 super()。如果父类没有无参构造方法，为了避免编译错误，需要在子类构造方法中显式的调用父类的含参构造方法。</p>
-<p>　　（5）子类创建时调用父类构造方法：子类需要使用父类的成员变量和方法，所以就要调用父类构造方法来初始化，之后再进行子类成员变量和方法的初始化。因此，构造方法是无法覆盖的。</p>
-<p>　　* （6）当子类需要扩展父类的某个方法时，可以覆盖父类方法，但是子类方法访问权限必须大于或等于父类权限。</p>
-<p>　　（7）继承提高了程序的复用性、扩展性，也是 Java 语言多态特征的前提。</p>
-<p>　　（8）在实际开发、程序设计过程中，并非先有的父类，而是先有了子类中通用的数据和逻辑，然后再抽取封装出来的父类。</p>
-<p>　　我们简单了解下类的实例化过程</p>
-<p>　　（1）JVM 读取指定 classpath 路径下的 class 文件，加载到内存，如果有直接父类，也会加载父类；</p>
-<p>　　（2）堆内存分配空间；</p>
-<p>　　（3）执行父类、子类静态代码块；</p>
-<p>　　（4）对象属性进行默认初始化；</p>
-<p>　　（5）调用构造方法；</p>
-<p>　　（6）在构造方法中，先调用父类构造方法初始化父类数据；</p>
-<p>　　（7）初始化父类数据后，显示初始化，执行子类的构造代码块；</p>
-<p>　　（8）再进行子类构造方法的特定初始化；</p>
-<p>　　（9）初始化完毕后，将地址赋值给引用</p>
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
@@ -199,6 +165,13 @@
             </div>
             
                 
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>Contents</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+                        </div>
+                    </div>
                 
             
         </div>
