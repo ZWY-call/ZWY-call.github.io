@@ -94,7 +94,7 @@
         <div class="md-content animated fadeIn">
             
                 <h2 id="JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星"><a href="#JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星" class="headerlink" title="JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星"></a>JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星</h2><p>###话不多说，直接放代码。</p>
-<h4 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24...</span></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre></pre></td></tr></table></figure>
             
             <span class="read-more gradient-text"><a href="/2019/10/22/java-画布功能/" title="Read article" class="posttitle">Read article</a></span>
         </div>
@@ -303,65 +303,58 @@
     <link rel="stylesheet" href="/css/dracula.css">
     <script src="//cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js">
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            document.querySelectorAll('pre code').forEach((block) => {
-                hljs.highlightBlock(block);
-            });
-        });
-    </script>
+    <script>document.addEventListener('DOMContentLoaded', (event) => {
+	document.querySelectorAll('pre code').forEach((block) => {
+		hljs.highlightBlock(block);
+	});
+});</script>
 
 
-<script>
-    function initialTyped () {
-        var typedTextEl = $('.typed-text');
-        if (typedTextEl && typedTextEl.length > 0) {
-            var typed = new Typed('.typed-text', {
-                strings: ["人们在一起可以做出单独一个人所不能做出的事业；智慧+双手+力量结合在一 起，几乎是万能的", "艺术家思维去思考问题，工匠创造精神去开发"],
-                typeSpeed: 90,
-                loop: true,
-                loopCount: Infinity,
-                backSpeed: 20,
-            });
-        }
-    }
+<script>function initialTyped() {
+	var typedTextEl = $('.typed-text');
+	if(typedTextEl && typedTextEl.length > 0) {
+		var typed = new Typed('.typed-text', {
+			strings: ["人们在一起可以做出单独一个人所不能做出的事业；智慧+双手+力量结合在一 起，几乎是万能的", "艺术家思维去思考问题，工匠创造精神去开发"],
+			typeSpeed: 90,
+			loop: true,
+			loopCount: Infinity,
+			backSpeed: 20,
+		});
+	}
+}
 
-    if ($('.article-header') && $('.article-header').length) {
-        $(document).ready(function () {
-            initialTyped();
-        });
-    }
-</script>
+if($('.article-header') && $('.article-header').length) {
+	$(document).ready(function() {
+		initialTyped();
+	});
+}</script>
 
 
     <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-    <script>
+    <script>var valine = new Valine();
 
-        var valine = new Valine();
+function initValine() {
+	let language = 'zh-Hans';
+	if(!language) {
+		language = 'en';
+	} else {
+		language = language.toLowerCase();
+	}
+	valine.init({
+		el: '#vcomments',
+		appId: '',
+		appKey: '',
+		notify: 'false',
+		verify: 'false',
+		avatar: 'mp',
+		placeholder: 'Leave your throughs behind~',
+		visitor: 'true',
+		lang: language
+	});
+}
 
-        function initValine() {
-            let language = 'zh-Hans';
-            if (!language) {
-                language = 'en';
-            } else {
-                language = language.toLowerCase();
-            }
-            valine.init({
-                el: '#vcomments',
-                appId: '',
-                appKey: '',
-                notify: 'false',
-                verify: 'false',
-                avatar: 'mp',
-                placeholder: 'Leave your throughs behind~',
-                visitor: 'true',
-                lang: language
-            });
-        }
-
-        $(document).ready(function () {
-            initValine();
-        });
-    </script>
+$(document).ready(function() {
+	initValine();
+});</script>
 
 </html>
