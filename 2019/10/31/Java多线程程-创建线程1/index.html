@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Java多线程_概念 - Hexo</title>
+    <title>Java多线程程_创建线程 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="Java 多线程-概念并发和并行　　并行：指两个或多个时间在同一时刻发生（同时发生）；
-　　并发：指两个或多个事件在一个时间段内发生。
-　　在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上,"> 
+    <meta name="description" content="如何创建多线程第一种方法：继承 Thread 类步骤：1、定义一个线程类 A 继承于 java.lang.Thread 类
+　　　2、在 A 类中覆盖 Thread 类的 run() 方法
+　　　3,"> 
     <meta name="author" content="耀"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -40,7 +40,7 @@
     <div class="bar" style="width: 0;"></div>
     <a id="home-icon" class="image-icon icon-home iconfont animated fadeIn" href="javascript:;" data-url="http://yoursite.com"></a>
     <div id="play-icon" title="Play/Pause" class="iconfont icon-play animated fadeIn"></div>
-    <h3 class="subtitle">Java多线程_概念</h3>
+    <h3 class="subtitle">Java多线程程_创建线程</h3>
     <div class="social">
 <!--        <div class="like-icon">-->
 <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -73,19 +73,19 @@
                 
                 October 31, 2019
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/10/31/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B_%E6%A6%82%E5%BF%B5/" title="Java多线程_概念" class="">Java多线程_概念</a></h3>
+            <h3 class="post-title animated fadeInDown"><a href="/2019/10/31/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%A8%8B-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B1/" title="Java多线程程_创建线程" class="">Java多线程程_创建线程</a></h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        1.5k
+                        5.2k
                     </span>
                     
                     
                         <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
+                        5 mins.
                     </span>
                     
                     
@@ -117,18 +117,15 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn slower">
-            <h1 id="Java-多线程-概念"><a href="#Java-多线程-概念" class="headerlink" title="Java 多线程-概念"></a>Java 多线程-概念</h1><h2 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h2><p>　　<strong>并行</strong>：指两个或多个时间在同一时刻发生（同时发生）；</p>
-<p>　　<strong>并发</strong>：指两个或多个事件在一个时间段内发生。</p>
-<p>　　在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上有多个程序同时运行，这在单 CPU 系统中，每一时刻只能有一道程序执行，即微观上这些程序是分时的交替运行，只不过是给人的感觉是同时运行，那是因为分时交替运行的时间是非常短的。</p>
-<p>　　而在多个 CPU 系统中，则这些可以并发执行的程序便可以分配到多个处理器上（CPU），实现多任务并行执行，即利用每个处理器来处理一个可以并发执行的程序，这样多个程序便可以同时执行。</p>
-<p>　　目前电脑市场上说的多核 CPU，便是多核处理器，核 越多，并行处理的程序越多，能大大的提高电脑运行的效率。</p>
-<p>注意：单核处理器的计算机肯定不能并行的处理多个任务，只能是多个任务交替的在单个 CPU 上运行。</p>
-<h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p>　**　进程**：是指一个内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以同时运行多个进程；进程也是程序的一次执行过程，是系统运行程序的基本单位；系统运行一个程序即是一个进程从创建、运行到消亡的过程。</p>
-<p> **　线程**：进程内部的一个独立执行单元；一个进程可以同时并发的运行多个线程，可以理解为一个进程便相当于一个单 CPU 操作系统，而线程便是这个系统中运行的多个任务。</p>
-<p><strong>注意</strong>：1、因为一个进程中的多个线程是并发运行的，那么从微观角度看也是有先后顺序的，哪个线程执行完全取决于 CPU 的调度，程序员是干涉不了的。而这也就造成的多线程的随机性。</p>
-<p>　　　2、Java 程序的进程里面至少包含两个线程，主进程也就是 main()方法线程，另外一个是垃圾回收机制线程。每当使用 java 命令执行一个类时，实际上都会启动一个 JVM，每一个 JVM 实际上就是在操作系统中启动了一个线程，java 本身具备了垃圾的收集机制，所以在 Java 运行时至少会启动两个线程。</p>
-<p>　　　3、由于创建一个线程的开销比创建一个进程的开销小的多，那么我们在开发多任务运行的时候，通常考虑创建多线程，而不是创建多进程。</p>
-<p> 　　  4、多线程是为了同步完成多个任务，不是为了提高程序运行效率，而是通过提高资源使用效率来提高系统的效率。比如做一个添加功能，需要向很多用户发送短信和邮件，如果需要一分钟，不能能让用户等一分钟才响应，可以使用多线程做后台发送，如果是单核，则多个任务交替的在单个 CPU 上运行，理论上比不使用多线程耗时多，因为CPU切换任务需要耗费时间，如果是多核，则可以提高资源的使用效率，多核可以充分利用上。 </p>
+            <h1 id="如何创建多线程"><a href="#如何创建多线程" class="headerlink" title="如何创建多线程"></a>如何创建多线程</h1><h3 id="第一种方法：继承-Thread-类"><a href="#第一种方法：继承-Thread-类" class="headerlink" title="第一种方法：继承 Thread 类"></a>第一种方法：继承 Thread 类</h3><p>步骤：1、定义一个线程类 A 继承于 java.lang.Thread 类</p>
+<p>　　　2、在 A 类中覆盖 Thread 类的 run() 方法</p>
+<p>　　　3、在 run() 方法中编写需要执行的操作</p>
+<p>　　　4、在 main 方法（线程）中，创建线程对象，并启动线程</p>
+<p>　　　　　　创建线程类：A类 a = new A()类；</p>
+<p>　　　　　　调用 start() 方法启动线程：a.start();</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: ChenHao</span></span><br><span class="line"><span class="comment"> * 创建多线程的第一种方式，继承java.lang.Thread类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:创建一个子线程，完成1-100之间自然数的输出。同样，主线程执行同样的操作</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: Created in 10:50 2018/10/29</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</span><br><span class="line">        SubThread subThread1=<span class="keyword">new</span> SubThread();</span><br><span class="line">        SubThread subThread2=<span class="keyword">new</span> SubThread();</span><br><span class="line">        <span class="comment">//调用线程的start(),启动此线程；调用相应的run()方法</span></span><br><span class="line">        subThread1.start();</span><br><span class="line">        subThread2.start();</span><br><span class="line">        <span class="comment">//一个线程只能够执行一次start()，start()中会判断threadStatus的状态是否为0，不为0则抛出异常</span></span><br><span class="line">        <span class="comment">//subThread1.start();</span></span><br><span class="line">        <span class="comment">//不能通过Thread实现类对象的run()去启动一个线程，此时只是主线程调用方法而已，并没有启动线程</span></span><br><span class="line">        <span class="comment">//subThread1.run();</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">":"</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//1.创建一个继承Thread的子类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="comment">//2.重写run方法，方法内实现此子线程要完成的功能</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">":"</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：1、不能通过Thread实现类对象的run()去启动一个线程，此时只是主线程调用方法而已，并没有启动线程，要启动线程，必须通过Start()方法</p>
+<p>　　　2、一个线程只能够执行一次start()，start()中会判断threadStatus的状态是否为0，不为0则抛出异常，所以一个线程调用两次start()会报异常 </p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
@@ -183,7 +180,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>Contents</h4>
-                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-多线程-概念"><span class="toc-number">1.</span> <span class="toc-text">Java 多线程-概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#并发和并行"><span class="toc-number">1.1.</span> <span class="toc-text">并发和并行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进程和线程"><span class="toc-number">2.</span> <span class="toc-text">进程和线程</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何创建多线程"><span class="toc-number">1.</span> <span class="toc-text">如何创建多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一种方法：继承-Thread-类"><span class="toc-number">1.0.1.</span> <span class="toc-text">第一种方法：继承 Thread 类</span></a></li></ol></li></ol></li></ol>
                         </div>
                     </div>
                 
