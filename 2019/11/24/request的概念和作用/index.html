@@ -5,14 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Java多线程_概念 - Hexo</title>
+    <title>request的概念和作用 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="Java 多线程-概念并发和并行　　并行：指两个或多个时间在同一时刻发生（同时发生）；
-　　并发：指两个或多个事件在一个时间段内发生。
-　　在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上,"> 
+    <meta name="description" content="request 对象request 对象是javax.servlet.http.HttpServletRequest类型的对象，代表客户端的请求信息，主要用于获取客户端的参数和流。 
+主要方法：(1,"> 
     <meta name="author" content="耀"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -40,7 +39,7 @@
     <div class="bar" style="width: 0;"></div>
     <a id="home-icon" class="image-icon icon-home iconfont animated fadeIn" href="javascript:;" data-url="http://yoursite.com"></a>
     <div id="play-icon" title="Play/Pause" class="iconfont icon-play animated fadeIn"></div>
-    <h3 class="subtitle">Java多线程_概念</h3>
+    <h3 class="subtitle">request的概念和作用</h3>
     <div class="social">
 <!--        <div class="like-icon">-->
 <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -71,21 +70,21 @@
                 
                     <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                October 31, 2019
+                November 24, 2019
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/10/31/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B_%E6%A6%82%E5%BF%B5/" title="Java多线程_概念" class="">Java多线程_概念</a></h3>
+            <h3 class="post-title animated fadeInDown"><a href="/2019/11/24/request%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BD%9C%E7%94%A8/" title="request的概念和作用" class="">request的概念和作用</a></h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        1.5k
+                        5.9k
                     </span>
                     
                     
                         <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
+                        5 mins.
                     </span>
                     
                     
@@ -117,18 +116,160 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn slower">
-            <h1 id="Java-多线程-概念"><a href="#Java-多线程-概念" class="headerlink" title="Java 多线程-概念"></a>Java 多线程-概念</h1><h2 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h2><p>　　<strong>并行</strong>：指两个或多个时间在同一时刻发生（同时发生）；</p>
-<p>　　<strong>并发</strong>：指两个或多个事件在一个时间段内发生。</p>
-<p>　　在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上有多个程序同时运行，这在单 CPU 系统中，每一时刻只能有一道程序执行，即微观上这些程序是分时的交替运行，只不过是给人的感觉是同时运行，那是因为分时交替运行的时间是非常短的。</p>
-<p>　　而在多个 CPU 系统中，则这些可以并发执行的程序便可以分配到多个处理器上（CPU），实现多任务并行执行，即利用每个处理器来处理一个可以并发执行的程序，这样多个程序便可以同时执行。</p>
-<p>　　目前电脑市场上说的多核 CPU，便是多核处理器，核 越多，并行处理的程序越多，能大大的提高电脑运行的效率。</p>
-<p>注意：单核处理器的计算机肯定不能并行的处理多个任务，只能是多个任务交替的在单个 CPU 上运行。</p>
-<h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p>　**　进程**：是指一个内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以同时运行多个进程；进程也是程序的一次执行过程，是系统运行程序的基本单位；系统运行一个程序即是一个进程从创建、运行到消亡的过程。</p>
-<p> **　线程**：进程内部的一个独立执行单元；一个进程可以同时并发的运行多个线程，可以理解为一个进程便相当于一个单 CPU 操作系统，而线程便是这个系统中运行的多个任务。</p>
-<p><strong>注意</strong>：1、因为一个进程中的多个线程是并发运行的，那么从微观角度看也是有先后顺序的，哪个线程执行完全取决于 CPU 的调度，程序员是干涉不了的。而这也就造成的多线程的随机性。</p>
-<p>　　　2、Java 程序的进程里面至少包含两个线程，主进程也就是 main()方法线程，另外一个是垃圾回收机制线程。每当使用 java 命令执行一个类时，实际上都会启动一个 JVM，每一个 JVM 实际上就是在操作系统中启动了一个线程，java 本身具备了垃圾的收集机制，所以在 Java 运行时至少会启动两个线程。</p>
-<p>　　　3、由于创建一个线程的开销比创建一个进程的开销小的多，那么我们在开发多任务运行的时候，通常考虑创建多线程，而不是创建多进程。</p>
-<p> 　　  4、多线程是为了同步完成多个任务，不是为了提高程序运行效率，而是通过提高资源使用效率来提高系统的效率。比如做一个添加功能，需要向很多用户发送短信和邮件，如果需要一分钟，不能能让用户等一分钟才响应，可以使用多线程做后台发送，如果是单核，则多个任务交替的在单个 CPU 上运行，理论上比不使用多线程耗时多，因为CPU切换任务需要耗费时间，如果是多核，则可以提高资源的使用效率，多核可以充分利用上。 </p>
+            <h1 id="request-对象"><a href="#request-对象" class="headerlink" title="request 对象"></a>request 对象</h1><p>request 对象是javax.servlet.http.HttpServletRequest类型的对象，代表客户端的请求信息，主要用于获取客户端的参数和流。 </p>
+<h2 id="主要方法："><a href="#主要方法：" class="headerlink" title="主要方法："></a>主要方法：</h2><p><em>(1) String getMethod() //获得提交方式<br>(2) String getRequestURI() //获得请求的URL地址<br>(3) String getProtocol() // 得到协议名称<br>(4) String getServletPath() //获得客户端请求服务器文件的路径<br>(5) String getQueryString() //获得URL的查询部分，post方法获得不到信息<br>(6) String getServerName() //得到服务器的名称<br>(7) String getServerPort() //获得服务器口号<br>(8) String getRemoteAddr() //得到客户端的IP地址<br>(9) String fetParameter(String name) //获得客户端传给服务器的name参数的值</em></p>
+<p>request对象的方法及其参数的传递<br>先设计一个简单的登录界面index.htm：<br>    <html><br>    <head><title>request的使用</title><meta name="generator" content="Hexo 4.0.0"></head><br>    <body bgcolor="#FFFFCC"><br>    <center><br>    <table border="1"></p>
+<pre><code>&lt;h1 align=&quot;center&quot;&gt;登陆验证&lt;/h1&gt;
+&lt;hr&gt;
+&lt;form action=&quot;requestform.jsp&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;用户名：&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;username&quot; size=&quot;20&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;密&amp;nbsp;码：&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;20&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;input type=&quot;submit&quot; name=&quot;Submit&quot; value=&quot;提交&quot;&gt;&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;input type=&quot;reset&quot; name=&quot;Submit2&quot; value=&quot;重填&quot;&gt;&lt;/td&gt;
+&lt;/form&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h3&gt;演示request对象的方法及其参数的传递&lt;/h3&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+输入信息后，提交到requestform.jsp页面，该页面用来显示一些参数：
+
+    &lt;%@ page contentType=&quot;text/html; charset=gb2312&quot; language=&quot;java&quot; import=&quot;java.util.*&quot; %&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=gb2312&quot;&gt;
+&lt;%
+    request.setCharacterEncoding(&quot;GBK&quot;);
+%&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;request对象的使用&lt;/title&gt;&lt;/head&gt;
+&lt;body bgcolor=&quot;#FFFFCC&quot;&gt;
+&lt;h3 align=&quot;center&quot;&gt;request对象的使用&lt;/h3&gt;
+&lt;center&gt;
+&lt;table border=&quot;1&quot; width=&quot;800&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;HttpUtil.getRequestURL(request)&lt;/td&gt;
+&lt;td&gt;&lt;%=HttpUtils.getRequestURL(request)%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回发送信息的方式--&gt;
+&lt;td&gt;request.getMethod()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getMethod()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回请求的URI字符串--&gt;
+&lt;td&gt;request.getRequestURL(request)&lt;/td&gt;  
+&lt;td&gt;&lt;%=request.getRequestURI()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回通信协议的方式--&gt;
+&lt;td&gt;request.getProtocol()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getProtocol()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回程序的相对路径和文件名称--&gt;
+&lt;td&gt;request.getServletPath()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getServletPath()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回程序的相对路径和文件名称--&gt;
+&lt;td&gt;request.getPathInfo()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getPathInfo()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回发送信息的方式--&gt;
+&lt;td&gt;request.getPathTranslated()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getPathTranslated()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回地址栏中后面的字符串--&gt;
+&lt;td&gt;request.getQueryString()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getQueryString()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回发送信息的方式--&gt;
+&lt;td&gt;request.getContentType()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getContentType()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回发送信息的方式--&gt;
+&lt;td&gt;request.getContentLength()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getContentLength()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回服务器主机名称--&gt;
+&lt;td&gt;request.getServerName()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getServerName()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回服务器主机连接的端口号--&gt;
+&lt;td&gt;request.getServerPort()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getServerPort()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回客户端用户的IP地址--&gt;
+&lt;td&gt;request.getRemoteAddr()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getRemoteAddr()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回返回客户端用户的主机名称--&gt;
+&lt;td&gt;request.getRemoteHost()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getRemoteHost()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;!--返回发送信息的方式--&gt;
+&lt;td&gt;request.getAuthType()&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getAuthType()%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3 align=&quot;center&quot;&gt;request.getHeaderNames()&lt;/h3&gt;
+&lt;table border=&quot;1&quot; width=&quot;800&quot;&gt;
+&lt;%
+    Enumeration enu1=request.getHeaderNames();
+    while(enu1.hasMoreElements()){
+        String names=(String)enu1.nextElement();
+%&gt;
+&lt;tr&gt;
+&lt;!--返回发送信息的方式--&gt;
+&lt;td&gt;&lt;%=names%&gt;&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getHeader(names)%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;%
+    }
+%&gt;
+&lt;/table&gt;
+&lt;h3 align=&quot;center&quot;&gt;getParameterNames()&lt;/h3&gt;
+&lt;table border=&quot;1&quot; width=&quot;800&quot;&gt;
+&lt;%
+    Enumeration enu2=request.getParameterNames();
+    while(enu2.hasMoreElements()){
+        String names=(String)enu2.nextElement();
+%&gt;
+&lt;tr&gt;
+&lt;!--返回发送信息的方式--&gt;
+&lt;td&gt;&lt;%=names%&gt;&lt;/td&gt;
+&lt;td&gt;&lt;%=request.getParameter(names)%&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;%
+    }
+%&gt;
+&lt;/table&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre><p>测试request对象的方法，以及传的参数的功能：</p>
+<p>启动Tomcat服务器，在IE地址栏中键入URL为：</p>
+<p><a href="http://localhost:8080/sky2098/request/index.htm" target="_blank" rel="noopener">http://localhost:8080/sky2098/request/index.htm</a></p>
+<p>页面效果如图所示：</p>
+<p>我们可以随意输入参数，也可以是空值，则提交后页面为(我输入的用户名为sky2098，密码88888888)：</p>
+<p>其中显示了request对象的一些方法能够实现的功能，我们可以看到各个方法的实现以及参数的传递：</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
@@ -183,7 +324,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>Contents</h4>
-                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-多线程-概念"><span class="toc-number">1.</span> <span class="toc-text">Java 多线程-概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#并发和并行"><span class="toc-number">1.1.</span> <span class="toc-text">并发和并行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进程和线程"><span class="toc-number">2.</span> <span class="toc-text">进程和线程</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#request-对象"><span class="toc-number">1.</span> <span class="toc-text">request 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要方法："><span class="toc-number">1.1.</span> <span class="toc-text">主要方法：</span></a></li></ol></li></ol>
                         </div>
                     </div>
                 

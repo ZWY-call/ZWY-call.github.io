@@ -77,13 +77,13 @@
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        4.6k
+                        2.1k
                     </span>
                     
                     
                         <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        4 mins.
+                        2 mins.
                     </span>
                     
                     
@@ -116,7 +116,36 @@
     <div class='main'>
         <div class="content markdown animated fadeIn slower">
             <h1 id="JSp-数据库链接"><a href="#JSp-数据库链接" class="headerlink" title="JSp 数据库链接"></a>JSp 数据库链接</h1><h2 id="一，数据库链接首先下载mysql连接类"><a href="#一，数据库链接首先下载mysql连接类" class="headerlink" title="一，数据库链接首先下载mysql连接类"></a>一，数据库链接首先下载mysql连接类</h2><p>下载地址：[<a href="https://dev.mysql.com/downloads/connector/j]" target="_blank" rel="noopener">https://dev.mysql.com/downloads/connector/j]</a><br>下载好，放到tomcat目录下的lib目录下即可。</p>
-<h2 id="二-编写jsp页面，测试连接mysql数据库"><a href="#二-编写jsp页面，测试连接mysql数据库" class="headerlink" title="二.编写jsp页面，测试连接mysql数据库"></a>二.编写jsp页面，测试连接mysql数据库</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ROOT]# cat testmysql.jsp </span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.sql.DriverManager"</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.sql.Connection"</span>%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;% </span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);<span class="comment">//记载数据库驱动，注册到驱动管理器</span></span><br><span class="line">        String url=<span class="string">"jdbc:mysql://172.16.13.162:3306/mysql"</span>;  <span class="comment">//根据自己的情况修改mysql数据库ip和端口，mysql是数据库上存在的一个库</span></span><br><span class="line">        String username=<span class="string">"root"</span>;   <span class="comment">//登录账号</span></span><br><span class="line">        String password=<span class="string">"123456"</span>;  <span class="comment">//登录密码</span></span><br><span class="line">        Connection conn=DriverManager.getConnection(url,username,password);</span><br><span class="line">        <span class="keyword">if</span>(conn!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            out.println(<span class="string">"mysql数据库连接成功！！！"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            out.println(<span class="string">"数据库连接失败！！！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">catch</span>(ClassNotFoundException e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="二-编写jsp页面，测试连接mysql数据库"><a href="#二-编写jsp页面，测试连接mysql数据库" class="headerlink" title="二.编写jsp页面，测试连接mysql数据库"></a>二.编写jsp页面，测试连接mysql数据库</h2><pre><code class="java">[root@localhost ROOT]# cat testmysql.jsp 
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@page import=&quot;java.sql.DriverManager&quot;%&gt;
+&lt;%@page import=&quot;java.sql.Connection&quot;%&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;% 
+    try{
+        Class.forName(&quot;com.mysql.jdbc.Driver&quot;);//记载数据库驱动，注册到驱动管理器
+        String url=&quot;jdbc:mysql://172.16.13.162:3306/mysql&quot;;  //根据自己的情况修改mysql数据库ip和端口，mysql是数据库上存在的一个库
+        String username=&quot;root&quot;;   //登录账号
+        String password=&quot;123456&quot;;  //登录密码
+        Connection conn=DriverManager.getConnection(url,username,password);
+        if(conn!=null){
+            out.println(&quot;mysql数据库连接成功！！！&quot;);
+        }else{
+            out.println(&quot;数据库连接失败！！！&quot;);
+        }
+    }catch(ClassNotFoundException e){
+        e.printStackTrace();
+    }
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 <h2 id="三-测试效果"><a href="#三-测试效果" class="headerlink" title="三.测试效果"></a>三.测试效果</h2><p>数据库做好相应配置后，测试连接成功<br><a href="https://img2018.cnblogs.com/blog/1147690/201810/1147690-20181026112031322-1637604045.png" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1147690/201810/1147690-20181026112031322-1637604045.png" alt=""></a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
@@ -161,7 +190,7 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">7 <p>Articles</p></a></li>
+                    <li><a href="/">12 <p>Articles</p></a></li>
                     <li><a href="/categories">0 <p>Categories</p></a></li>
                     <li><a href="/tags">0 <p>Tags</p></a></li>
                 </ul>

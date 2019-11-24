@@ -79,13 +79,13 @@
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        5.2k
+                        1.7k
                     </span>
                     
                     
                         <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        5 mins.
+                        2 mins.
                     </span>
                     
                     
@@ -123,7 +123,38 @@
 <p>　　　4、在 main 方法（线程）中，创建线程对象，并启动线程</p>
 <p>　　　　　　创建线程类：A类 a = new A()类；</p>
 <p>　　　　　　调用 start() 方法启动线程：a.start();</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: ChenHao</span></span><br><span class="line"><span class="comment"> * 创建多线程的第一种方式，继承java.lang.Thread类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:创建一个子线程，完成1-100之间自然数的输出。同样，主线程执行同样的操作</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: Created in 10:50 2018/10/29</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</span><br><span class="line">        SubThread subThread1=<span class="keyword">new</span> SubThread();</span><br><span class="line">        SubThread subThread2=<span class="keyword">new</span> SubThread();</span><br><span class="line">        <span class="comment">//调用线程的start(),启动此线程；调用相应的run()方法</span></span><br><span class="line">        subThread1.start();</span><br><span class="line">        subThread2.start();</span><br><span class="line">        <span class="comment">//一个线程只能够执行一次start()，start()中会判断threadStatus的状态是否为0，不为0则抛出异常</span></span><br><span class="line">        <span class="comment">//subThread1.start();</span></span><br><span class="line">        <span class="comment">//不能通过Thread实现类对象的run()去启动一个线程，此时只是主线程调用方法而已，并没有启动线程</span></span><br><span class="line">        <span class="comment">//subThread1.run();</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">":"</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//1.创建一个继承Thread的子类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="comment">//2.重写run方法，方法内实现此子线程要完成的功能</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">":"</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">/**
+ * @author: ChenHao
+ * 创建多线程的第一种方式，继承java.lang.Thread类
+ * @Description:创建一个子线程，完成1-100之间自然数的输出。同样，主线程执行同样的操作
+ * @Date: Created in 10:50 2018/10/29
+ */
+public class TestThread {
+    public static void main(String [] args){
+        SubThread subThread1=new SubThread();
+        SubThread subThread2=new SubThread();
+        //调用线程的start(),启动此线程；调用相应的run()方法
+        subThread1.start();
+        subThread2.start();
+        //一个线程只能够执行一次start()，start()中会判断threadStatus的状态是否为0，不为0则抛出异常
+        //subThread1.start();
+        //不能通过Thread实现类对象的run()去启动一个线程，此时只是主线程调用方法而已，并没有启动线程
+        //subThread1.run();
+        for (int i=0;i&lt;=100;i++){
+            System.out.println(Thread.currentThread().getName()+&quot;:&quot;+i);
+        }
+    }
+}
+//1.创建一个继承Thread的子类
+class SubThread extends Thread{
+    //2.重写run方法，方法内实现此子线程要完成的功能
+    @Override
+    public void run(){
+        for (int i=0;i&lt;=100;i++){
+            System.out.println(Thread.currentThread().getName()+&quot;:&quot;+i);
+        }
+    }
+}</code></pre>
 <p><strong>注意</strong>：1、不能通过Thread实现类对象的run()去启动一个线程，此时只是主线程调用方法而已，并没有启动线程，要启动线程，必须通过Start()方法</p>
 <p>　　　2、一个线程只能够执行一次start()，start()中会判断threadStatus的状态是否为0，不为0则抛出异常，所以一个线程调用两次start()会报异常 </p>
 
@@ -169,7 +200,7 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">7 <p>Articles</p></a></li>
+                    <li><a href="/">12 <p>Articles</p></a></li>
                     <li><a href="/categories">0 <p>Categories</p></a></li>
                     <li><a href="/tags">0 <p>Tags</p></a></li>
                 </ul>

@@ -11,7 +11,9 @@
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
     <meta name="description" content="JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星###话不多说，直接放代码。
-Java代码12345678910111213141516171819202122232,"> 
+Java代码/**
+     * @author-程前
+     * @version-,"> 
     <meta name="author" content="耀"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -78,13 +80,13 @@ Java代码12345678910111213141516171819202122232,">
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        6.3k
+                        1.6k
                     </span>
                     
                     
                         <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        6 mins.
+                        1 mins.
                     </span>
                     
                     
@@ -117,7 +119,51 @@ Java代码12345678910111213141516171819202122232,">
     <div class='main'>
         <div class="content markdown animated fadeIn slower">
             <h2 id="JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星"><a href="#JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星" class="headerlink" title="JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星"></a>JAVA画板JFrame画布JPanel画笔Graphics画漫天不停的跑的星星</h2><p>###话不多说，直接放代码。</p>
-<h4 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span>-程前</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@version</span>-star1.2.1</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@note</span>-画一百个*，然后通过repaint()不停的重画，造成炫酷的效果</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Star1</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            <span class="comment">//实例化画板</span></span><br><span class="line">            JFrame f=<span class="keyword">new</span> JFrame();</span><br><span class="line">            <span class="comment">//设置画板大小</span></span><br><span class="line">            f.setSize(<span class="number">1400</span>,<span class="number">900</span>);</span><br><span class="line">            <span class="comment">//实例化画布</span></span><br><span class="line">            Mypanl p=<span class="keyword">new</span> Mypanl();</span><br><span class="line">            p.setBackground(Color.BLACK);</span><br><span class="line">            <span class="comment">//将画布放到画板上</span></span><br><span class="line">            f.add(p);</span><br><span class="line">            <span class="comment">//展示画板</span></span><br><span class="line">            f.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Mypanl</span> <span class="keyword">extends</span> <span class="title">JPanel</span></span>&#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * 重写画布的绘画方法，里面有一个画笔参数*/</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">paint</span><span class="params">(Graphics g)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">super</span>.paint(g);</span><br><span class="line">                <span class="comment">//设置画笔颜色</span></span><br><span class="line">                g.setColor(Color.WHITE);</span><br><span class="line">                <span class="comment">//设置画笔大小</span></span><br><span class="line">                g.setFont(<span class="keyword">new</span> Font(<span class="keyword">null</span>, <span class="number">0</span>,<span class="number">50</span>));</span><br><span class="line">                <span class="comment">//循环花100个星星</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;<span class="number">100</span>; i++) &#123;</span><br><span class="line">                    g.drawString(<span class="string">"*"</span>,(<span class="keyword">int</span>)(Math.random()*<span class="number">1400</span>),(<span class="keyword">int</span>)(Math.random()*<span class="number">1400</span>));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//线程等待100毫秒后重画</span></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                repaint();</span><br><span class="line">            &#125;</span><br><span class="line">​</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h4><pre><code class="java">/**
+     * @author-程前
+     * @version-star1.2.1
+     * @note-画一百个*，然后通过repaint()不停的重画，造成炫酷的效果
+     * */
+    public class Star1 {
+        public static void main(String[] args) {
+            //实例化画板
+            JFrame f=new JFrame();
+            //设置画板大小
+            f.setSize(1400,900);
+            //实例化画布
+            Mypanl p=new Mypanl();
+            p.setBackground(Color.BLACK);
+            //将画布放到画板上
+            f.add(p);
+            //展示画板
+            f.setVisible(true);
+        }
+        static class Mypanl extends JPanel{
+            /*
+             * 重写画布的绘画方法，里面有一个画笔参数*/
+            @Override
+            public void paint(Graphics g) {
+                super.paint(g);
+                //设置画笔颜色
+                g.setColor(Color.WHITE);
+                //设置画笔大小
+                g.setFont(new Font(null, 0,50));
+                //循环花100个星星
+                for (int i = 0; i &lt;100; i++) {
+                    g.drawString(&quot;*&quot;,(int)(Math.random()*1400),(int)(Math.random()*1400));
+                }
+                //线程等待100毫秒后重画
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                repaint();
+            }
+​
+        }
+    }</code></pre>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
                 <source type="audio/mpeg" src="">
@@ -160,7 +206,7 @@ Java代码12345678910111213141516171819202122232,">
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">7 <p>Articles</p></a></li>
+                    <li><a href="/">12 <p>Articles</p></a></li>
                     <li><a href="/categories">0 <p>Categories</p></a></li>
                     <li><a href="/tags">0 <p>Tags</p></a></li>
                 </ul>

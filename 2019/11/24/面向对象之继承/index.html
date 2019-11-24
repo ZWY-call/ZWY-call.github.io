@@ -5,14 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Java多线程_概念 - Hexo</title>
+    <title>面向对象之继承 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="Java 多线程-概念并发和并行　　并行：指两个或多个时间在同一时刻发生（同时发生）；
-　　并发：指两个或多个事件在一个时间段内发生。
-　　在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上,"> 
+    <meta name="description" content="面向对象之_继承1,如果多个类具有相同的属性和行为，我们可以抽取出共性的内容定义父类，这时再创建相似的类时只要继承父类即可。子类拥有父类的所有属性与方法，无需重新定义。并且可以直接使用非私有的父类成,"> 
     <meta name="author" content="耀"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -40,7 +38,7 @@
     <div class="bar" style="width: 0;"></div>
     <a id="home-icon" class="image-icon icon-home iconfont animated fadeIn" href="javascript:;" data-url="http://yoursite.com"></a>
     <div id="play-icon" title="Play/Pause" class="iconfont icon-play animated fadeIn"></div>
-    <h3 class="subtitle">Java多线程_概念</h3>
+    <h3 class="subtitle">面向对象之继承</h3>
     <div class="social">
 <!--        <div class="like-icon">-->
 <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -71,15 +69,15 @@
                 
                     <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                October 31, 2019
+                November 24, 2019
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/10/31/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B_%E6%A6%82%E5%BF%B5/" title="Java多线程_概念" class="">Java多线程_概念</a></h3>
+            <h3 class="post-title animated fadeInDown"><a href="/2019/11/24/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E7%BB%A7%E6%89%BF/" title="面向对象之继承" class="">面向对象之继承</a></h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        1.5k
+                        903
                     </span>
                     
                     
@@ -117,19 +115,32 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn slower">
-            <h1 id="Java-多线程-概念"><a href="#Java-多线程-概念" class="headerlink" title="Java 多线程-概念"></a>Java 多线程-概念</h1><h2 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h2><p>　　<strong>并行</strong>：指两个或多个时间在同一时刻发生（同时发生）；</p>
-<p>　　<strong>并发</strong>：指两个或多个事件在一个时间段内发生。</p>
-<p>　　在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上有多个程序同时运行，这在单 CPU 系统中，每一时刻只能有一道程序执行，即微观上这些程序是分时的交替运行，只不过是给人的感觉是同时运行，那是因为分时交替运行的时间是非常短的。</p>
-<p>　　而在多个 CPU 系统中，则这些可以并发执行的程序便可以分配到多个处理器上（CPU），实现多任务并行执行，即利用每个处理器来处理一个可以并发执行的程序，这样多个程序便可以同时执行。</p>
-<p>　　目前电脑市场上说的多核 CPU，便是多核处理器，核 越多，并行处理的程序越多，能大大的提高电脑运行的效率。</p>
-<p>注意：单核处理器的计算机肯定不能并行的处理多个任务，只能是多个任务交替的在单个 CPU 上运行。</p>
-<h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p>　**　进程**：是指一个内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以同时运行多个进程；进程也是程序的一次执行过程，是系统运行程序的基本单位；系统运行一个程序即是一个进程从创建、运行到消亡的过程。</p>
-<p> **　线程**：进程内部的一个独立执行单元；一个进程可以同时并发的运行多个线程，可以理解为一个进程便相当于一个单 CPU 操作系统，而线程便是这个系统中运行的多个任务。</p>
-<p><strong>注意</strong>：1、因为一个进程中的多个线程是并发运行的，那么从微观角度看也是有先后顺序的，哪个线程执行完全取决于 CPU 的调度，程序员是干涉不了的。而这也就造成的多线程的随机性。</p>
-<p>　　　2、Java 程序的进程里面至少包含两个线程，主进程也就是 main()方法线程，另外一个是垃圾回收机制线程。每当使用 java 命令执行一个类时，实际上都会启动一个 JVM，每一个 JVM 实际上就是在操作系统中启动了一个线程，java 本身具备了垃圾的收集机制，所以在 Java 运行时至少会启动两个线程。</p>
-<p>　　　3、由于创建一个线程的开销比创建一个进程的开销小的多，那么我们在开发多任务运行的时候，通常考虑创建多线程，而不是创建多进程。</p>
-<p> 　　  4、多线程是为了同步完成多个任务，不是为了提高程序运行效率，而是通过提高资源使用效率来提高系统的效率。比如做一个添加功能，需要向很多用户发送短信和邮件，如果需要一分钟，不能能让用户等一分钟才响应，可以使用多线程做后台发送，如果是单核，则多个任务交替的在单个 CPU 上运行，理论上比不使用多线程耗时多，因为CPU切换任务需要耗费时间，如果是多核，则可以提高资源的使用效率，多核可以充分利用上。 </p>
+            <h1 id="面向对象之-继承"><a href="#面向对象之-继承" class="headerlink" title="面向对象之_继承"></a>面向对象之_继承</h1><p>1,如果多个类具有相同的属性和行为，我们可以抽取出共性的内容定义父类，这时再创建相似的类时只要继承父类即可。<br>子类拥有父类的所有属性与方法，无需重新定义。并且可以直接使用非私有的父类成员。<br>从逻辑关系来看,子类必须属于父类的一种时，才应该继承，且在原有基础上进行功能扩展。<br>继承关系的产生通常是为了定义出功能更为具体、更为强大的子类。所以，定义子类后，一般创建子类对象使用。子类可以直接使用父类非私有的成员变量与成员方法。<br>(注：如果成员变量没有使用private修饰，则子类也可直接访问。)</p>
+<p>2,继承注意事项<br>Java只支持单继承，不支持多继承。即只能有一个父类。<br>父类可以继续有父类。<br>所有类均有父类，只有Object类没有父类。<br>在所有使用父类类型的地方均可以传入其子类对象。<br>子类访问父类非私有化成员变量</p>
+<p>3,Java当中的继承格式：</p>
+<pre><code>public class 子类 extends 父类{
+    //父类的非私有方法与属性均继承过来，可以直接调用
+    //可以在父类的基础上扩展方法
+}
 
+    如：
+父类的定义：
+public class Person{
+    //父类的成员变量
+    private String name;
+    //父类的方法
+    public void eat(){
+        System.out.println(“吃饭”);
+    }
+}
+子类继承父类的定义：
+public class Chinese extends Person{
+
+    //继承的同时，可以定义子类特有的方法
+    public void sleep() {
+        System.out.println(“睡觉”);
+}
+}</code></pre>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
                 <source type="audio/mpeg" src="">
@@ -183,7 +194,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>Contents</h4>
-                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-多线程-概念"><span class="toc-number">1.</span> <span class="toc-text">Java 多线程-概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#并发和并行"><span class="toc-number">1.1.</span> <span class="toc-text">并发和并行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进程和线程"><span class="toc-number">2.</span> <span class="toc-text">进程和线程</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象之-继承"><span class="toc-number">1.</span> <span class="toc-text">面向对象之_继承</span></a></li></ol>
                         </div>
                     </div>
                 

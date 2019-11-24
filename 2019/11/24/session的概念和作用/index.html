@@ -5,14 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Java多线程_概念 - Hexo</title>
+    <title>session的概念和作用 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="Java 多线程-概念并发和并行　　并行：指两个或多个时间在同一时刻发生（同时发生）；
-　　并发：指两个或多个事件在一个时间段内发生。
-　　在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上,"> 
+    <meta name="description" content="session 对象session 对象是由服务器自动创建的与请求相关的对象，服务器为每个用户都生成一个session对象，用于保存该用户的信息，跟踪用户的操作状态。session内部使用Map来保,"> 
     <meta name="author" content="耀"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -40,7 +38,7 @@
     <div class="bar" style="width: 0;"></div>
     <a id="home-icon" class="image-icon icon-home iconfont animated fadeIn" href="javascript:;" data-url="http://yoursite.com"></a>
     <div id="play-icon" title="Play/Pause" class="iconfont icon-play animated fadeIn"></div>
-    <h3 class="subtitle">Java多线程_概念</h3>
+    <h3 class="subtitle">session的概念和作用</h3>
     <div class="social">
 <!--        <div class="like-icon">-->
 <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -71,21 +69,21 @@
                 
                     <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                October 31, 2019
+                November 24, 2019
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/10/31/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B_%E6%A6%82%E5%BF%B5/" title="Java多线程_概念" class="">Java多线程_概念</a></h3>
+            <h3 class="post-title animated fadeInDown"><a href="/2019/11/24/session%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BD%9C%E7%94%A8/" title="session的概念和作用" class="">session的概念和作用</a></h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        1.5k
+                        2.7k
                     </span>
                     
                     
                         <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
+                        2 mins.
                     </span>
                     
                     
@@ -117,19 +115,37 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn slower">
-            <h1 id="Java-多线程-概念"><a href="#Java-多线程-概念" class="headerlink" title="Java 多线程-概念"></a>Java 多线程-概念</h1><h2 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h2><p>　　<strong>并行</strong>：指两个或多个时间在同一时刻发生（同时发生）；</p>
-<p>　　<strong>并发</strong>：指两个或多个事件在一个时间段内发生。</p>
-<p>　　在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上有多个程序同时运行，这在单 CPU 系统中，每一时刻只能有一道程序执行，即微观上这些程序是分时的交替运行，只不过是给人的感觉是同时运行，那是因为分时交替运行的时间是非常短的。</p>
-<p>　　而在多个 CPU 系统中，则这些可以并发执行的程序便可以分配到多个处理器上（CPU），实现多任务并行执行，即利用每个处理器来处理一个可以并发执行的程序，这样多个程序便可以同时执行。</p>
-<p>　　目前电脑市场上说的多核 CPU，便是多核处理器，核 越多，并行处理的程序越多，能大大的提高电脑运行的效率。</p>
-<p>注意：单核处理器的计算机肯定不能并行的处理多个任务，只能是多个任务交替的在单个 CPU 上运行。</p>
-<h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p>　**　进程**：是指一个内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以同时运行多个进程；进程也是程序的一次执行过程，是系统运行程序的基本单位；系统运行一个程序即是一个进程从创建、运行到消亡的过程。</p>
-<p> **　线程**：进程内部的一个独立执行单元；一个进程可以同时并发的运行多个线程，可以理解为一个进程便相当于一个单 CPU 操作系统，而线程便是这个系统中运行的多个任务。</p>
-<p><strong>注意</strong>：1、因为一个进程中的多个线程是并发运行的，那么从微观角度看也是有先后顺序的，哪个线程执行完全取决于 CPU 的调度，程序员是干涉不了的。而这也就造成的多线程的随机性。</p>
-<p>　　　2、Java 程序的进程里面至少包含两个线程，主进程也就是 main()方法线程，另外一个是垃圾回收机制线程。每当使用 java 命令执行一个类时，实际上都会启动一个 JVM，每一个 JVM 实际上就是在操作系统中启动了一个线程，java 本身具备了垃圾的收集机制，所以在 Java 运行时至少会启动两个线程。</p>
-<p>　　　3、由于创建一个线程的开销比创建一个进程的开销小的多，那么我们在开发多任务运行的时候，通常考虑创建多线程，而不是创建多进程。</p>
-<p> 　　  4、多线程是为了同步完成多个任务，不是为了提高程序运行效率，而是通过提高资源使用效率来提高系统的效率。比如做一个添加功能，需要向很多用户发送短信和邮件，如果需要一分钟，不能能让用户等一分钟才响应，可以使用多线程做后台发送，如果是单核，则多个任务交替的在单个 CPU 上运行，理论上比不使用多线程耗时多，因为CPU切换任务需要耗费时间，如果是多核，则可以提高资源的使用效率，多核可以充分利用上。 </p>
+            <h1 id="session-对象"><a href="#session-对象" class="headerlink" title="session 对象"></a>session 对象</h1><p>session 对象是由服务器自动创建的与请求相关的对象，服务器为每个用户都生成一个session对象，用于保存该用户的信息，跟踪用户的操作状态。session内部使用Map来保存数据，即key-value对<br>主要方法：<br>(1) session.setAttribute(String,Object); //给Object命名String，加入session<br>(2) session.getAttribute(String); //取名为String的session的值<br>(3) session.removeAttribute(String); //将名为String的内容从session中移除　</p>
+<h2 id="1、session对象概述"><a href="#1、session对象概述" class="headerlink" title="1、session对象概述"></a>1、session对象概述</h2><pre><code>session对象是由服务器自动创建与用户请求相关的对象。服务器会为每一个用户创建一个session对象用来保存用户信息，跟踪用户操作。该对象内部使用Map类来保存数据，因此它的数据类型是key-value形式。对应javax.servlet.http.HttpSession.class对象。
 
+ 服务器为不同的浏览器在内存中创建用于保存数据的对象叫seesion。并将这个对象的唯一身份认证SessionId（存放在cookie中）返回给浏览器，浏览器将这个SessionId保存，当浏览器向服务器再次发送请求的时候，连同这个cookie一起发送过去，由此找到对应的session。</code></pre><h2 id="2、获取session"><a href="#2、获取session" class="headerlink" title="2、获取session"></a>2、获取session</h2><pre><code>通过request对象可以获得
+HttpSession s = request.getSession(boolean flag);
+HttpSession s = request.getSession( );
+当flag为true时，会在在浏览器发送过来的请求中查看是否有SID，有，则返回与SID对应的session对象，没有，创建一个新的。当flag为false，没有就返回null。第二种方法相当于true。</code></pre><h2 id="3、session添加、获取、移除数据"><a href="#3、session添加、获取、移除数据" class="headerlink" title="3、session添加、获取、移除数据"></a>3、session添加、获取、移除数据</h2><pre><code>Session作为服务器端为各客户端保存交互数据的一种方式，采用key-value对的形式来区分每一组数据。
+向session添加数据
+void session.setAttribute(String name,Object obj);
+获取绑定数据
+void session.getAttribute(String name);
+移除绑定数据
+void session.removeAttribute(String name);
+删除session对象
+void  invalidate()
+Session对象可以保存更复杂的对象类型数据了，不像Cookie只能保存字符串。</code></pre><h1 id="4、session超时、设置缺省时间"><a href="#4、session超时、设置缺省时间" class="headerlink" title="4、session超时、设置缺省时间"></a>4、session超时、设置缺省时间</h1><p>Session会以对象的形式占用服务器端的内存，过多的以及长期的消耗内存会降低服务器端的运行效率，所以Session对象存在于内存中时会有默认的时间限制，一旦Session对象存在的时间超过了这个缺省的时间限制则认为是Session超时，Session会失效，不能再继续访问。（默认30min）</p>
+<pre><code class="html"> //返回客户端最后一次与会话有关的请求时间
+ public abstract long getLastAccessedTime();
+
+ //以秒为单位返回一个会话内两个请求时间间隔
+ public abstract int getMaxInactiveInterval();
+
+ //以秒为单位设置session有效时间
+ public abstract void setMaxInactiveInterval(int i);
+</code></pre>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>5、禁用cookie与URL重写</p>
+<p>Session对象的查找依赖SID，当cookie禁用的时候，为了使session仍然可用，就要使用URL重写。<br>    URL重写：浏览器在访问服务器的某个地址时，会使用一个改写过的地址，即在原有地址后追加SessionID，这种重新定义URL内容的方式叫做URL重写。如：原有地址的写法为：<br>    <a href="http://localhost:8080/test/some" target="_blank" rel="noopener">http://localhost:8080/test/some</a></p>
+<pre><code>重写后的地址写法为： 
+http://localhost:8080/test/some;jsessionid=4E113CB3
+
+session保存在服务器，由浏览器发送一个sessionID（保存在cookie中，cookie封装在request对象中）来获得这个session对象，当cookie禁用，我们得不到这个sessionID，所以需要通过URL传参的方式来传递这个ID。</code></pre>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
                 <source type="audio/mpeg" src="">
@@ -183,7 +199,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>Contents</h4>
-                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-多线程-概念"><span class="toc-number">1.</span> <span class="toc-text">Java 多线程-概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#并发和并行"><span class="toc-number">1.1.</span> <span class="toc-text">并发和并行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进程和线程"><span class="toc-number">2.</span> <span class="toc-text">进程和线程</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#session-对象"><span class="toc-number">1.</span> <span class="toc-text">session 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、session对象概述"><span class="toc-number">1.1.</span> <span class="toc-text">1、session对象概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、获取session"><span class="toc-number">1.2.</span> <span class="toc-text">2、获取session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、session添加、获取、移除数据"><span class="toc-number">1.3.</span> <span class="toc-text">3、session添加、获取、移除数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4、session超时、设置缺省时间"><span class="toc-number">2.</span> <span class="toc-text">4、session超时、设置缺省时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text"></span></a></li></ol>
                         </div>
                     </div>
                 

@@ -5,14 +5,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Java多线程_概念 - Hexo</title>
+    <title>面向对象之封装 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="Java 多线程-概念并发和并行　　并行：指两个或多个时间在同一时刻发生（同时发生）；
-　　并发：指两个或多个事件在一个时间段内发生。
-　　在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上,"> 
+    <meta name="description" content="面向对象之封装封装有两层含义:
+​ 1.对功能的封装，比如我们的方法，方法就是一个功能的实现
+​ 2.对数据的封装，就比如手机的价格、屏幕等
+封装的表现:
+​ 1.方法就是一个最基本的封装
+​ 2.,"> 
     <meta name="author" content="耀"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -40,7 +43,7 @@
     <div class="bar" style="width: 0;"></div>
     <a id="home-icon" class="image-icon icon-home iconfont animated fadeIn" href="javascript:;" data-url="http://yoursite.com"></a>
     <div id="play-icon" title="Play/Pause" class="iconfont icon-play animated fadeIn"></div>
-    <h3 class="subtitle">Java多线程_概念</h3>
+    <h3 class="subtitle">面向对象之封装</h3>
     <div class="social">
 <!--        <div class="like-icon">-->
 <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -71,21 +74,21 @@
                 
                     <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                October 31, 2019
+                November 24, 2019
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/10/31/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B_%E6%A6%82%E5%BF%B5/" title="Java多线程_概念" class="">Java多线程_概念</a></h3>
+            <h3 class="post-title animated fadeInDown"><a href="/2019/11/24/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B9%8B%E5%B0%81%E8%A3%85/" title="面向对象之封装" class="">面向对象之封装</a></h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        1.5k
+                        1.9k
                     </span>
                     
                     
                         <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
+                        2 mins.
                     </span>
                     
                     
@@ -117,18 +120,103 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn slower">
-            <h1 id="Java-多线程-概念"><a href="#Java-多线程-概念" class="headerlink" title="Java 多线程-概念"></a>Java 多线程-概念</h1><h2 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h2><p>　　<strong>并行</strong>：指两个或多个时间在同一时刻发生（同时发生）；</p>
-<p>　　<strong>并发</strong>：指两个或多个事件在一个时间段内发生。</p>
-<p>　　在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上有多个程序同时运行，这在单 CPU 系统中，每一时刻只能有一道程序执行，即微观上这些程序是分时的交替运行，只不过是给人的感觉是同时运行，那是因为分时交替运行的时间是非常短的。</p>
-<p>　　而在多个 CPU 系统中，则这些可以并发执行的程序便可以分配到多个处理器上（CPU），实现多任务并行执行，即利用每个处理器来处理一个可以并发执行的程序，这样多个程序便可以同时执行。</p>
-<p>　　目前电脑市场上说的多核 CPU，便是多核处理器，核 越多，并行处理的程序越多，能大大的提高电脑运行的效率。</p>
-<p>注意：单核处理器的计算机肯定不能并行的处理多个任务，只能是多个任务交替的在单个 CPU 上运行。</p>
-<h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p>　**　进程**：是指一个内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以同时运行多个进程；进程也是程序的一次执行过程，是系统运行程序的基本单位；系统运行一个程序即是一个进程从创建、运行到消亡的过程。</p>
-<p> **　线程**：进程内部的一个独立执行单元；一个进程可以同时并发的运行多个线程，可以理解为一个进程便相当于一个单 CPU 操作系统，而线程便是这个系统中运行的多个任务。</p>
-<p><strong>注意</strong>：1、因为一个进程中的多个线程是并发运行的，那么从微观角度看也是有先后顺序的，哪个线程执行完全取决于 CPU 的调度，程序员是干涉不了的。而这也就造成的多线程的随机性。</p>
-<p>　　　2、Java 程序的进程里面至少包含两个线程，主进程也就是 main()方法线程，另外一个是垃圾回收机制线程。每当使用 java 命令执行一个类时，实际上都会启动一个 JVM，每一个 JVM 实际上就是在操作系统中启动了一个线程，java 本身具备了垃圾的收集机制，所以在 Java 运行时至少会启动两个线程。</p>
-<p>　　　3、由于创建一个线程的开销比创建一个进程的开销小的多，那么我们在开发多任务运行的时候，通常考虑创建多线程，而不是创建多进程。</p>
-<p> 　　  4、多线程是为了同步完成多个任务，不是为了提高程序运行效率，而是通过提高资源使用效率来提高系统的效率。比如做一个添加功能，需要向很多用户发送短信和邮件，如果需要一分钟，不能能让用户等一分钟才响应，可以使用多线程做后台发送，如果是单核，则多个任务交替的在单个 CPU 上运行，理论上比不使用多线程耗时多，因为CPU切换任务需要耗费时间，如果是多核，则可以提高资源的使用效率，多核可以充分利用上。 </p>
+            <h1 id="面向对象之封装"><a href="#面向对象之封装" class="headerlink" title="面向对象之封装"></a>面向对象之封装</h1><p>封装有两层含义:</p>
+<p>​ 1.对功能的封装，比如我们的方法，方法就是一个功能的实现</p>
+<p>​ 2.对数据的封装，就比如手机的价格、屏幕等</p>
+<p>封装的表现:</p>
+<p>​ 1.方法就是一个最基本的封装</p>
+<p>​ 2.类其实就是一个封装体</p>
+<p>封装的好处:</p>
+<p>​ 1.提高了代码的复用性</p>
+<p>​ 2.影藏实现细节，对外提供可以访问的方法。便于使用者去使用，这是核心之一，也就是理解为封装的概念。</p>
+<p>​ 3.提高了安全性</p>
+<p>封装举例:</p>
+<ul>
+<li>比如人：</li>
+<li><ul>
+<li>属性:</li>
+</ul>
+</li>
+<li><ul>
+<li>姓名</li>
+</ul>
+</li>
+<li><ul>
+<li>年龄</li>
+</ul>
+</li>
+<li><ul>
+<li>方法:</li>
+</ul>
+</li>
+<li><ul>
+<li>吃饭</li>
+</ul>
+</li>
+</ul>
+<p>不私有化属性:</p>
+<pre><code>　　public class Person{
+
+　　　　String name;
+
+　　　　int age;
+
+　　　　public void eat(){
+
+　　　　　　System.out.println(name+&quot;在吃饭&quot;)
+
+　　}　　　　
+
+}
+
+　　public class PersonDemo(){
+
+　　
+
+public static void main(){
+        //创建Person的对象
+        Person person = new Person();
+        person.name=&quot;人妖&quot;;
+        person.age = &quot;18&quot;;
+        p.eat();
+   }
+}</code></pre><p>通过上述代码，我们用Java代码把Person描述清楚了，但有个严重的问题，就是Person中的属性是可以用直接访问的。</p>
+<p>怎么才能不让直接访问呢?</p>
+<p>​ 需要使用java中的一个关键字private(私有,权限修饰符)。只要将Person的属性和行为私有起来，这样就无法直接访问。</p>
+<p>私有化属性:<br>`    public class Person{<br>        private String name;<br>        private int age;</p>
+<pre><code>    /*
+        提供set与get方法
+    */
+    public void setName(String name){
+        this.name = name;//this代表本类对象
+    }
+    public String getName(){
+        return this.name;
+    }
+
+    public void setAge(int age){
+        this.age = age;
+    }
+    public int getAge(){
+        return this.age;
+    }
+
+    public void eat(){
+        System.out.println(name + &quot;在吃饭&quot;);
+    }
+}
+
+public class PersonDemo{
+     public static void main(String[] args){
+        Person person = new Person();
+        //现在 person.name = &quot;人妖&quot;；是行不通的，那我们要肿么办呢？
+        person.setName(&quot;小则&quot;);
+     }   
+}`
+
+总结：</code></pre><p>​ 类中不需要对外提供的内容都私有化，包括属性和方法。</p>
+<p>​ 以后再描述事物，属性都私有化，并提供setXxx getXxx方法对其进行访问。</p>
+<p>注意：私有仅仅是封装的体现形式而已</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
@@ -183,7 +271,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>Contents</h4>
-                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-多线程-概念"><span class="toc-number">1.</span> <span class="toc-text">Java 多线程-概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#并发和并行"><span class="toc-number">1.1.</span> <span class="toc-text">并发和并行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进程和线程"><span class="toc-number">2.</span> <span class="toc-text">进程和线程</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象之封装"><span class="toc-number">1.</span> <span class="toc-text">面向对象之封装</span></a></li></ol>
                         </div>
                     </div>
                 
